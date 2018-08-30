@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+      <form class="col s12" [hidden]="loginService.checkLogin()" (ngSubmit)="onSubmit()">     
+        <div class="row">
+            <div class="input-field col s12">
+              <input id="username" type="text" class="validate" required [(ngModel)]="model.username" ngControl="username" name="username" required>
+              <label for="username">Email *</label>
+            </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="password" class="validate" type="password" required [(ngModel)]="model.password" ngControl="password" name="password" required>
+            <label for="password">Password *</label>
+          </div>
+        </div>
+  
+        <button class="btn waves-effect waves-light" type="submit">Login
+        </button>
+      </form>
+    </div>
+  
+    <div [hidden]="!loginService.checkLogin()">
+        <h3>Logged In Successfully! </h3>
+        <h2>Welcome back, {{currentUserName}}!</h2>
+      </div>
+  
+    <div *ngIf="errorVar" style="color:red;">
+      <h3>Error occured</h3>
+    </div>
+
+  </div>

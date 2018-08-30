@@ -1,0 +1,16 @@
+<div class="container">
+
+  <ul class="collection with-header">
+      <li class="collection-header"><h4>My Notes</h4></li>
+      <li *ngFor="let note of notes" class="collection-item">
+        <div>{{note.title}}
+          <a style="width:50px;" (click)="deleteNote(note.id)" class="secondary-content"><i class="material-icons">delete</i></a>
+          <a style="width:50px;" (click)="openNote(note.id)" class="secondary-content"><i class="material-icons">event_note</i></a>
+        </div>
+      </li>
+  </ul>
+
+
+  <a routerLink="/add_note" routerLinkActive="active" class="btn">Add Note</a>
+
+</div>

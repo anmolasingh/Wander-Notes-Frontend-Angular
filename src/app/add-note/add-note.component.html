@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+      <form class="col s12" (ngSubmit)="onSubmit()" #addNoteForm = "ngForm">
+          <div class="row">
+              <div class="input-field col s12">
+                <input id="title" name="title" type="text" class="validate" [(ngModel)]="model.title" ngControl="title" required>
+                <label for="title">Title *</label>
+              </div>
+            </div>
+          <div class="row">
+              <div class="input-field col s12">
+                <textarea id="description" name="description" [(ngModel)]="model.description" ngControl="description" class="materialize-textarea" required></textarea>
+                <label for="description">Description *</label>
+              </div>
+            </div>
+  
+        <button class="btn waves-effect waves-light" type="submit" name="action" [disabled]="!addNoteForm.form.valid">Add Note
+        </button>
+      </form>
+    </div>
+</div>

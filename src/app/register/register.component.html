@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <form *ngIf="!registered" class="col s12" (ngSubmit)="onSubmit()" #registerForm = "ngForm">
+        <div class="row">
+            <div class="input-field col s12">
+              <input id="name" name="name" type="text" class="validate" [(ngModel)]="newUser.name" ngControl="name" required>
+              <label for="name">Name *</label>
+            </div>
+          </div>
+        <div class="row">
+            <div class="input-field col s12">
+              <input id="email" name="email" type="email" class="validate" class="validate" [(ngModel)]="newUser.email" ngControl="email" required>
+              <label for="email">Email *</label>
+            </div>
+          </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" name="password" type="password" class="validate" [(ngModel)]="newUser.password" ngControl="password" required>
+          <label for="password">Password *</label>
+        </div>
+      </div>
+
+      <button class="btn waves-effect waves-light" type="submit" name="action" [disabled]="!registerForm.form.valid">Register
+      </button>
+    </form>
+  </div>
+
+  <div *ngIf="registered">
+      <h3>Registered Successfully!</h3>
+  </div>
+
+  <div *ngIf="errorVar" style="color:red;">
+    <h3>Error occured</h3>
+  </div>
+
+  <div *ngIf="userExistsVar" style="color:red;">
+      <h3>User already exists</h3>
+    </div>
+</div>

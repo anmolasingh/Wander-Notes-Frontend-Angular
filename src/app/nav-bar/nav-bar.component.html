@@ -1,0 +1,10 @@
+<nav>
+  <div class="nav-wrapper">
+    <a routerLink="/home" routerLinkActive="active" class="brand-logo right">Wander Notes</a>
+    <ul id="nav-mobile" class="left">
+      <li><a routerLink="/login" routerLinkActive="active" (click)="onClick()">{{loginService.checkLogin()? 'Logout' : 'Login'}}</a></li>
+      <li><a *ngIf="!loginService.checkLogin()" routerLink="/register" routerLinkActive="active">Register</a></li>
+      <li><a *ngIf="loginService.checkLogin()" routerLink="/notes_list" routerLinkActive="active">Notes</a></li>
+    </ul>
+  </div>
+</nav>
