@@ -30,12 +30,10 @@ export class NotesListComponent {
   }
 
   openNote(noteId) {
-    //console.log(noteId);
     this.router.navigate([`../note/${noteId}`], { relativeTo: this.route });
   }
 
   deleteNote(noteId) {
-    //console.log(noteId);
     this.notesService.deleteNote(noteId).subscribe(
       data => {
         var status = JSON.parse(JSON.parse(JSON.stringify(data))._body);
